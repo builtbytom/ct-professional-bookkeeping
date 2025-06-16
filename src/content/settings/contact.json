@@ -1,0 +1,14 @@
+{
+  "phone": "(203) 555-0123",
+  "email": "info@ctprobookkeeping.com",
+  "address1": "123 Main Street, Suite 200",
+  "address2": "",
+  "city": "New Haven",
+  "state": "CT",
+  "zip": "06511",
+  "hours": {
+    "weekdays": "9:00 AM - 5:00 PM",
+    "saturday": "By Appointment",
+    "sunday": "Closed"
+  }
+}

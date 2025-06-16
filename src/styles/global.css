@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-800 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-navy-800;
+  }
+
+  /* Professional focus styles */
+  :focus {
+    @apply outline-none ring-2 ring-gold-500 ring-offset-2;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-navy-500 text-white;
+  }
+}
+
+@layer components {
+  /* Professional button styles */
+  .btn-primary {
+    @apply bg-navy-600 text-white px-6 py-3 rounded-lg font-medium 
+           hover:bg-navy-700 transition-colors duration-200
+           focus:ring-2 focus:ring-gold-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-navy-600 px-6 py-3 rounded-lg font-medium 
+           border-2 border-navy-600 hover:bg-navy-50 
+           transition-colors duration-200
+           focus:ring-2 focus:ring-gold-500 focus:ring-offset-2;
+  }
+
+  .btn-gold {
+    @apply bg-gold-500 text-navy-900 px-6 py-3 rounded-lg font-medium 
+           hover:bg-gold-600 transition-colors duration-200
+           focus:ring-2 focus:ring-gold-500 focus:ring-offset-2;
+  }
+
+  /* Professional card styles */
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg 
+           transition-shadow duration-200;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg
+           focus:border-navy-500 focus:ring-2 focus:ring-navy-500/20
+           transition-colors duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  /* Professional container */
+  .container-narrow {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}
+
+@layer utilities {
+  /* Subtle animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  /* Text balance for professional look */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Professional gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-navy-600 to-navy-800 bg-clip-text text-transparent;
+  }
+
+  /* Gold accent gradient */
+  .gradient-gold {
+    @apply bg-gradient-to-r from-gold-400 to-gold-600;
+  }
+}

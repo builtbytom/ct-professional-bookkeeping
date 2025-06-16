@@ -1,0 +1,130 @@
+backend:
+  name: test-repo # For demo purposes, using test backend
+  # For production, use:
+  # name: git-gateway
+  # branch: main
+
+# Media files will be stored in the repo
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Define collections - the different content types
+collections:
+  # Homepage content
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Hero Section"
+        name: "hero"
+        file: "src/content/homepage/hero.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string", hint: "Main headline for the homepage"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", hint: "Supporting text under the title"}
+          - {label: "Button Text", name: "buttonText", widget: "string", default: "Book Consultation"}
+          - {label: "Button Link", name: "buttonLink", widget: "string", default: "/contact"}
+      
+      - label: "Trust Signals"
+        name: "trust"
+        file: "src/content/homepage/trust.json"
+        fields:
+          - {label: "Years in Business", name: "years", widget: "number", default: 14}
+          - {label: "Clients Served", name: "clients", widget: "number", default: 250}
+          - {label: "Tax Savings", name: "savings", widget: "string", default: "$2.5M+"}
+          - {label: "Certifications", name: "certifications", widget: "list", default: ["QuickBooks ProAdvisor", "IRS Enrolled Agent", "CPA"]}
+
+  # Services
+  - name: "services"
+    label: "Services"
+    folder: "src/content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Service Name", name: "title", widget: "string"}
+      - {label: "Short Description", name: "description", widget: "text"}
+      - {label: "Icon", name: "icon", widget: "select", options: ["calculator", "document", "chart", "money", "clock", "shield"]}
+      - label: "Pricing Tiers"
+        name: "pricing"
+        widget: "list"
+        fields:
+          - {label: "Tier Name", name: "name", widget: "string"}
+          - {label: "Price", name: "price", widget: "string"}
+          - {label: "Features", name: "features", widget: "list"}
+      - {label: "Full Content", name: "body", widget: "markdown"}
+
+  # Team Members
+  - name: "team"
+    label: "Team Members"
+    folder: "src/content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Photo", name: "photo", widget: "image", required: false}
+      - {label: "Bio", name: "bio", widget: "text"}
+      - {label: "Certifications", name: "certifications", widget: "list", required: false}
+      - {label: "Email", name: "email", widget: "string", required: false}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+
+  # FAQ
+  - name: "faq"
+    label: "Frequently Asked Questions"
+    folder: "src/content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Answer", name: "answer", widget: "markdown"}
+      - {label: "Category", name: "category", widget: "select", options: ["General", "Pricing", "Services", "Process", "Tax"]}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+
+  # Resources
+  - name: "resources"
+    label: "Resources"
+    folder: "src/content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Type", name: "type", widget: "select", options: ["Checklist", "Guide", "Template", "Calculator"]}
+      - {label: "Download File", name: "file", widget: "file", required: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "Requires Email", name: "requiresEmail", widget: "boolean", default: true}
+
+  # Testimonials
+  - name: "testimonials"
+    label: "Client Testimonials"
+    folder: "src/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Client Name", name: "name", widget: "string"}
+      - {label: "Business", name: "business", widget: "string"}
+      - {label: "Testimonial", name: "quote", widget: "text"}
+      - {label: "Service Used", name: "service", widget: "string"}
+      - {label: "Photo", name: "photo", widget: "image", required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+
+  # Site Settings
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Contact Information"
+        name: "contact"
+        file: "src/content/settings/contact.json"
+        fields:
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Address Line 1", name: "address1", widget: "string"}
+          - {label: "Address Line 2", name: "address2", widget: "string", required: false}
+          - {label: "City", name: "city", widget: "string"}
+          - {label: "State", name: "state", widget: "string"}
+          - {label: "ZIP", name: "zip", widget: "string"}
+          - label: "Office Hours"
+            name: "hours"
+            widget: "object"
+            fields:
+              - {label: "Monday-Friday", name: "weekdays", widget: "string", default: "9:00 AM - 5:00 PM"}
+              - {label: "Saturday", name: "saturday", widget: "string", default: "Closed"}
+              - {label: "Sunday", name: "sunday", widget: "string", default: "Closed"}

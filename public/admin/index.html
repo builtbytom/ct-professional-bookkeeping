@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager - Connecticut Professional Bookkeeping</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      /* Custom CMS Styles for Professional Look */
+      [data-slate-editor] {
+        -webkit-user-modify: read-write !important;
+      }
+      
+      /* Professional color scheme */
+      .nc-githubAuthenticationPage-button {
+        background-color: #003d82 !important;
+        color: white !important;
+      }
+      
+      .nc-githubAuthenticationPage-button:hover {
+        background-color: #002f63 !important;
+      }
+      
+      /* Demo mode banner */
+      body::before {
+        content: "DEMO MODE - Feel free to edit anything! Changes won't be saved.";
+        display: block;
+        background-color: #e9bf45;
+        color: #001325;
+        padding: 12px;
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+      }
+      
+      /* Adjust CMS header to account for demo banner */
+      .nc-app-header {
+        margin-top: 44px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // Initialize the CMS
+      CMS.init();
+      
+      // Custom preview styles
+      CMS.registerPreviewStyle('/admin/preview.css');
+      
+      // Show a welcome message for demo users
+      if (window.location.hostname !== 'localhost') {
+        setTimeout(() => {
+          const loginButton = document.querySelector('.nc-githubAuthenticationPage-button');
+          if (loginButton) {
+            loginButton.textContent = 'Try the CMS Demo';
+          }
+        }, 100);
+      }
+    </script>
+  </body>
+</html>

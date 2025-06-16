@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Professional bookkeeping services for New Haven County businesses. Expert QuickBooks setup, tax preparation, payroll services, and monthly bookkeeping.' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Connecticut Professional Bookkeeping</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | Connecticut Professional Bookkeeping`} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={`${title} | Connecticut Professional Bookkeeping`} />
+    <meta property="twitter:description" content={description} />
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Connecticut Professional Bookkeeping",
+        "description": "Professional bookkeeping and accounting services for New Haven County businesses",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Haven",
+          "addressRegion": "CT",
+          "postalCode": "06511",
+          "addressCountry": "US"
+        },
+        "telephone": "(203) 555-0123",
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "priceRange": "$$",
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.3083,
+            "longitude": -72.9279
+          },
+          "geoRadius": "30000"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
