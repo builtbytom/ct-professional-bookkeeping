@@ -62,27 +62,27 @@ const testimonials = [
   <Header />
   
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-navy-800 to-navy-900 text-white">
-    <div class="container-narrow section-padding">
+  <section class="relative bg-gradient-to-br from-navy-700 to-navy-800 text-white overflow-hidden">
+    <div class="container-narrow section-padding relative z-10">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="animate-slide-up">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 text-balance">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 text-balance text-white drop-shadow-lg">
             {heroContent.title}
           </h1>
-          <p class="text-xl text-gray-200 mb-8 leading-relaxed">
+          <p class="text-xl text-gray-100 mb-8 leading-relaxed drop-shadow">
             {heroContent.subtitle}
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href={heroContent.buttonLink} class="btn-gold inline-block text-center">
+            <a href={heroContent.buttonLink} class="btn-gold inline-block text-center shadow-lg hover:shadow-xl">
               {heroContent.buttonText}
             </a>
-            <a href="tel:2035550123" class="btn-secondary inline-block text-center">
+            <a href="tel:2035550123" class="btn-secondary inline-block text-center bg-white/95 backdrop-blur-sm shadow-lg hover:shadow-xl hover:bg-white">
               Call (203) 555-0123
             </a>
           </div>
         </div>
         <div class="relative animate-fade-in hidden md:block">
-          <div class="absolute inset-0 bg-gold-500/20 blur-3xl"></div>
+          <div class="absolute inset-0 bg-gold-500/30 blur-3xl"></div>
           <img 
             src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" 
             alt="Professional bookkeeping services"
@@ -91,8 +91,10 @@ const testimonials = [
         </div>
       </div>
     </div>
+    <!-- Background pattern for better readability -->
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-900/50 to-navy-800/30 z-0"></div>
     <!-- Decorative wave -->
-    <div class="absolute bottom-0 left-0 right-0">
+    <div class="absolute bottom-0 left-0 right-0 z-10">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z" fill="white"/>
       </svg>
