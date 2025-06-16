@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Resources data
+const resources = [
+  {
+    title: '2024 Connecticut Small Business Tax Checklist',
+    description: 'Comprehensive checklist covering all Connecticut and federal tax deadlines, required forms, and deductions specific to CT businesses.',
+    type: 'PDF Checklist',
+    icon: '📋',
+    benefits: [
+      'Never miss a tax deadline again',
+      'Maximize your deductions',
+      'Connecticut-specific requirements',
+      'Updated for 2024 tax law changes'
+    ],
+    cta: 'Download Free Checklist'
+  },
+  {
+    title: 'QuickBooks Setup Guide for CT Businesses',
+    description: 'Step-by-step guide to setting up QuickBooks correctly for Connecticut sales tax, payroll taxes, and local compliance.',
+    type: 'PDF Guide',
+    icon: '💻',
+    benefits: [
+      'Avoid costly setup mistakes',
+      'Connecticut tax settings explained',
+      'Industry-specific tips',
+      '30+ page comprehensive guide'
+    ],
+    cta: 'Get Your Free Guide'
+  },
+  {
+    title: 'Monthly Financial Dashboard Template',
+    description: 'Excel template designed to give Connecticut business owners instant visibility into their financial health.',
+    type: 'Excel Template',
+    icon: '📊',
+    benefits: [
+      'Track KPIs that matter',
+      'Automated calculations',
+      'Easy-to-read visualizations',
+      'Customizable for your business'
+    ],
+    cta: 'Download Template'
+  },
+  {
+    title: 'Connecticut Business Expense Tracker',
+    description: 'Mobile-friendly spreadsheet for tracking deductible expenses with Connecticut-specific categories and tax rates.',
+    type: 'Spreadsheet',
+    icon: '📱',
+    benefits: [
+      'IRS-compliant categories',
+      'Mileage tracking included',
+      'Connecticut sales tax calculator',
+      'Works on any device'
+    ],
+    cta: 'Start Tracking Expenses'
+  }
+];
+
+const guides = [
+  {
+    title: 'Starting a Business in Connecticut',
+    topics: ['Business registration', 'Tax ID numbers', 'State requirements', 'First-year finances'],
+    readTime: '15 min read'
+  },
+  {
+    title: 'Connecticut Sales Tax Compliance',
+    topics: ['Registration process', 'Collection requirements', 'Filing deadlines', 'Common mistakes'],
+    readTime: '12 min read'
+  },
+  {
+    title: 'Choosing the Right Business Structure',
+    topics: ['LLC vs Corporation', 'Tax implications', 'Connecticut specifics', 'Protection strategies'],
+    readTime: '20 min read'
+  }
+];
+
+const webinars = [
+  {
+    title: 'Year-End Tax Planning for CT Businesses',
+    date: 'December 15, 2024',
+    time: '2:00 PM EST',
+    duration: '60 minutes',
+    topics: ['Last-minute deductions', '2025 tax changes', 'Q&A with our tax experts']
+  },
+  {
+    title: 'QuickBooks Best Practices',
+    date: 'Monthly - Third Thursday',
+    time: '12:00 PM EST',
+    duration: '45 minutes',
+    topics: ['Common mistakes', 'Time-saving features', 'Live demonstrations']
+  }
+];
+---
+
+<BaseLayout title="Resources">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-navy-700 to-navy-800 text-white py-20">
+    <div class="container-narrow text-center">
+      <h1 class="text-4xl md:text-5xl font-serif mb-6 text-white drop-shadow-lg animate-slide-up">
+        Free Resources for Connecticut Businesses
+      </h1>
+      <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow animate-fade-in">
+        Practical tools, guides, and templates designed specifically for Connecticut business owners. 
+        No fluff, just actionable resources that save you time and money.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Downloads -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-navy-800 mb-4">Featured Downloads</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Get instant access to our most popular resources. No catch, just helpful tools from one CT business to another.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {resources.map((resource, index) => (
+          <div class="card hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-gold-500 animate-slide-up" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="flex items-start space-x-4">
+              <div class="text-5xl flex-shrink-0">{resource.icon}</div>
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 class="text-xl font-bold text-navy-800 mb-1">{resource.title}</h3>
+                    <span class="text-sm text-gold-600 font-medium">{resource.type}</span>
+                  </div>
+                </div>
+                <p class="text-gray-700 mb-4">{resource.description}</p>
+                
+                <div class="mb-6">
+                  <h4 class="text-sm font-bold text-navy-800 mb-2">What's Included:</h4>
+                  <ul class="space-y-1">
+                    {resource.benefits.map((benefit) => (
+                      <li class="flex items-center text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-gold-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <a href="/contact" class="btn-gold inline-block text-center w-full">
+                  {resource.cta}
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Guides -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-navy-800 mb-4">Connecticut Business Guides</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          In-depth articles covering the financial topics that matter most to Connecticut businesses
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {guides.map((guide, index) => (
+          <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden animate-slide-up" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-navy-800 mb-3">{guide.title}</h3>
+              <p class="text-sm text-gray-500 mb-4">{guide.readTime}</p>
+              <div class="mb-6">
+                <h4 class="text-sm font-bold text-navy-800 mb-2">Topics Covered:</h4>
+                <ul class="space-y-1">
+                  {guide.topics.map((topic) => (
+                    <li class="text-sm text-gray-700 flex items-center">
+                      <span class="w-1.5 h-1.5 bg-gold-500 rounded-full mr-2"></span>
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a href="/contact" class="text-navy-600 font-medium hover:text-navy-800 flex items-center">
+                Read Guide
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Webinars -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-navy-800 mb-4">Free Educational Webinars</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Join our live sessions to learn directly from our experts and get your questions answered
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {webinars.map((webinar, index) => (
+          <div class="card hover:shadow-xl transition-all duration-300 animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="border-l-4 border-gold-500 pl-6">
+              <h3 class="text-xl font-bold text-navy-800 mb-2">{webinar.title}</h3>
+              <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  {webinar.date}
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  {webinar.time}
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  {webinar.duration}
+                </div>
+              </div>
+              <div class="mb-4">
+                <h4 class="text-sm font-bold text-navy-800 mb-2">What We'll Cover:</h4>
+                <ul class="space-y-1">
+                  {webinar.topics.map((topic) => (
+                    <li class="text-sm text-gray-700 flex items-center">
+                      <span class="w-1.5 h-1.5 bg-gold-500 rounded-full mr-2"></span>
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a href="/contact" class="text-gold-600 font-medium hover:text-gold-700">
+                Register for Free →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="section-padding bg-gradient-to-r from-navy-700 to-navy-800 text-white">
+    <div class="container-narrow">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-serif mb-6 text-white">Stay Updated with Tax Tips & Business Insights</h2>
+        <p class="text-xl text-gray-100 mb-8">
+          Get monthly updates on Connecticut tax changes, bookkeeping tips, and exclusive resources 
+          delivered straight to your inbox. No spam, just valuable information for CT business owners.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            class="flex-1 px-6 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-gold-500"
+            required
+          />
+          <button type="submit" class="btn-gold">
+            Subscribe
+          </button>
+        </form>
+        <p class="text-sm text-gray-300 mt-4">
+          Join 500+ Connecticut business owners. Unsubscribe anytime.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section-padding bg-gold-50">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl md:text-4xl font-serif text-navy-800 mb-6">Need More Personalized Help?</h2>
+      <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+        While these resources are helpful, nothing beats personalized advice for your specific situation. 
+        Let's discuss how we can help your business thrive.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn bg-navy-800 text-white hover:bg-navy-900 inline-block">Schedule Free Consultation</a>
+        <a href="/services" class="btn-secondary inline-block">View Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

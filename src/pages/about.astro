@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Team members data
+const teamMembers = [
+  {
+    name: 'Thomas Lucia',
+    role: 'Founder & Lead Bookkeeper',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
+    credentials: ['QuickBooks ProAdvisor', 'Certified Bookkeeper (AIPB)', 'MBA, Finance'],
+    bio: 'With over 15 years of experience serving Connecticut businesses, Thomas founded the firm to provide personalized, professional bookkeeping services that help local businesses thrive.'
+  },
+  {
+    name: 'Sarah Anderson',
+    role: 'Senior Tax Specialist',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+    credentials: ['Enrolled Agent (EA)', 'QuickBooks Advanced Certified', 'BS, Accounting'],
+    bio: 'Sarah specializes in tax strategy and compliance for small businesses, with deep expertise in Connecticut tax law and IRS regulations.'
+  },
+  {
+    name: 'Michael Chen',
+    role: 'Payroll Services Manager',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
+    credentials: ['Certified Payroll Professional (CPP)', 'SHRM-CP', 'BS, Business Administration'],
+    bio: 'Michael ensures accurate, compliant payroll processing for all our clients, staying current with ever-changing employment laws and regulations.'
+  }
+];
+
+const values = [
+  {
+    title: 'Integrity First',
+    description: 'We handle your finances with the same care and honesty we\'d want for our own business.',
+    icon: '🛡️'
+  },
+  {
+    title: 'Local Focus',
+    description: 'As a Connecticut business ourselves, we understand the unique challenges you face.',
+    icon: '📍'
+  },
+  {
+    title: 'Continuous Learning',
+    description: 'Tax laws change. Technology evolves. We stay ahead so you don\'t have to.',
+    icon: '📚'
+  },
+  {
+    title: 'Personal Service',
+    description: 'You\'re not just an account number. We know your business and your goals.',
+    icon: '🤝'
+  }
+];
+---
+
+<BaseLayout title="About Us">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-navy-700 to-navy-800 text-white py-20">
+    <div class="container-narrow text-center">
+      <h1 class="text-4xl md:text-5xl font-serif mb-6 text-white drop-shadow-lg animate-slide-up">
+        About Connecticut Professional Bookkeeping
+      </h1>
+      <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow animate-fade-in">
+        Your trusted financial partner since 2010, dedicated to helping Connecticut businesses 
+        succeed through accurate bookkeeping and strategic financial guidance.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-up">
+          <h2 class="text-3xl font-serif text-navy-800 mb-6">Our Story</h2>
+          <div class="prose prose-lg text-gray-700">
+            <p class="mb-4">
+              Connecticut Professional Bookkeeping was founded with a simple mission: to provide 
+              local businesses with the same quality of financial services that larger corporations 
+              enjoy, but with the personal touch and understanding that only comes from being part 
+              of the community.
+            </p>
+            <p class="mb-4">
+              After years of watching small business owners struggle with bookkeeping while trying 
+              to run their companies, we knew there had to be a better way. We built our practice 
+              on the belief that professional bookkeeping should be accessible, understandable, and 
+              actually helpful to business growth.
+            </p>
+            <p>
+              Today, we serve over 200 businesses across New Haven County, from Main Street shops 
+              to growing tech startups. What hasn't changed is our commitment to treating each 
+              client's business as if it were our own.
+            </p>
+          </div>
+        </div>
+        <div class="relative animate-fade-in">
+          <img 
+            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" 
+            alt="Our office in New Haven"
+            class="rounded-lg shadow-2xl"
+          />
+          <div class="absolute -bottom-6 -left-6 bg-gold-500 text-navy-800 p-4 rounded-lg shadow-xl">
+            <div class="text-2xl font-bold">14+</div>
+            <div class="text-sm">Years Serving CT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-navy-800 mb-4">Our Values</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          These principles guide everything we do, from how we work with clients to how we grow our team.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {values.map((value, index) => (
+          <div class="text-center animate-scale-in" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="text-5xl mb-4">{value.icon}</div>
+            <h3 class="text-xl font-bold text-navy-800 mb-3">{value.title}</h3>
+            <p class="text-gray-600">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-navy-800 mb-4">Meet Our Team</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Certified professionals dedicated to your financial success
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {teamMembers.map((member, index) => (
+          <div class="card hover:shadow-xl transition-all duration-300 animate-slide-up" style={`animation-delay: ${index * 0.1}s`}>
+            <img 
+              src={member.image} 
+              alt={member.name}
+              class="w-full h-64 object-cover rounded-t-lg"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-navy-800 mb-1">{member.name}</h3>
+              <p class="text-gold-600 font-medium mb-4">{member.role}</p>
+              <p class="text-gray-700 mb-4">{member.bio}</p>
+              <div class="border-t pt-4">
+                <h4 class="text-sm font-bold text-navy-800 mb-2">Credentials:</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  {member.credentials.map((credential) => (
+                    <li class="flex items-center">
+                      <svg class="w-4 h-4 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                      </svg>
+                      {credential}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications & Affiliations -->
+  <section class="section-padding bg-navy-800 text-white">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-white mb-4">Professional Certifications</h2>
+        <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+          Our team maintains the highest professional standards through continuous education and certification
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="animate-scale-in">
+          <div class="w-24 h-24 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl font-bold text-navy-800">QB</span>
+          </div>
+          <h3 class="font-bold text-white mb-2">QuickBooks ProAdvisor</h3>
+          <p class="text-gray-300 text-sm">Advanced certified in QuickBooks Online & Desktop</p>
+        </div>
+        
+        <div class="animate-scale-in" style="animation-delay: 0.1s">
+          <div class="w-24 h-24 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl font-bold text-navy-800">AIPB</span>
+          </div>
+          <h3 class="font-bold text-white mb-2">Certified Bookkeeper</h3>
+          <p class="text-gray-300 text-sm">American Institute of Professional Bookkeepers</p>
+        </div>
+        
+        <div class="animate-scale-in" style="animation-delay: 0.2s">
+          <div class="w-24 h-24 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl font-bold text-navy-800">EA</span>
+          </div>
+          <h3 class="font-bold text-white mb-2">Enrolled Agent</h3>
+          <p class="text-gray-300 text-sm">Licensed to represent taxpayers before the IRS</p>
+        </div>
+        
+        <div class="animate-scale-in" style="animation-delay: 0.3s">
+          <div class="w-24 h-24 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl font-bold text-navy-800">CPP</span>
+          </div>
+          <h3 class="font-bold text-white mb-2">Payroll Professional</h3>
+          <p class="text-gray-300 text-sm">Certified in payroll compliance and processing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-gradient-to-r from-gold-500 to-gold-600">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl md:text-4xl font-serif text-navy-800 mb-6">Ready to Work Together?</h2>
+      <p class="text-xl text-navy-700 mb-8 max-w-2xl mx-auto">
+        Let's discuss how our expertise can help your business thrive. 
+        Schedule a free consultation to get started.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn bg-navy-800 text-white hover:bg-navy-900 inline-block">Schedule Consultation</a>
+        <a href="/services" class="btn bg-white text-navy-800 hover:bg-gray-100 inline-block">View Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

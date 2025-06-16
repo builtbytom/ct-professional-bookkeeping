@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// FAQ categories and questions
+const faqCategories = [
+  {
+    category: 'General Bookkeeping',
+    questions: [
+      {
+        question: 'How often should I update my books?',
+        answer: 'For most Connecticut small businesses, monthly bookkeeping is ideal. It keeps you current for tax obligations, helps you make informed decisions, and prevents year-end scrambling. Some high-volume businesses may benefit from weekly updates.'
+      },
+      {
+        question: 'What documents do I need to provide for bookkeeping?',
+        answer: 'Typically, you\'ll need bank statements, credit card statements, receipts for expenses, invoices you\'ve sent to customers, payroll reports, and any loan documents. We provide a secure portal for easy document upload.'
+      },
+      {
+        question: 'Can you work with my existing accounting software?',
+        answer: 'Yes! We\'re proficient in QuickBooks (Online and Desktop), Xero, Wave, and most major accounting platforms. If you\'re using something else, we can likely work with it or help you transition to a better solution.'
+      },
+      {
+        question: 'How do you ensure accuracy in bookkeeping?',
+        answer: 'We use a three-step process: initial data entry by our bookkeeping team, review by a senior bookkeeper, and monthly reconciliation meetings with you. Plus, we guarantee our work - if we make an error, we fix it at no charge.'
+      }
+    ]
+  },
+  {
+    category: 'Connecticut Taxes',
+    questions: [
+      {
+        question: 'What Connecticut-specific taxes do I need to worry about?',
+        answer: 'Connecticut businesses typically deal with state income tax, sales and use tax (6.35% standard rate), employer payroll taxes, and potentially the business entity tax. We ensure you\'re compliant with all applicable state and local taxes.'
+      },
+      {
+        question: 'When are Connecticut sales taxes due?',
+        answer: 'Connecticut sales tax returns are typically due monthly (for most businesses) by the last day of the month following the reporting period. Smaller businesses may qualify for quarterly filing. We handle all filings and ensure you never miss a deadline.'
+      },
+      {
+        question: 'Do I need to collect sales tax on online sales?',
+        answer: 'If you have "nexus" in Connecticut (physical presence or meet economic thresholds), you must collect CT sales tax on taxable sales to Connecticut customers. This includes online sales. We help you determine your nexus and set up proper tax collection.'
+      },
+      {
+        question: 'What business expenses are deductible in Connecticut?',
+        answer: 'Connecticut generally follows federal guidelines for business deductions. Common deductions include rent, utilities, supplies, marketing, professional services, vehicle expenses, and employee wages. We maximize your deductions while ensuring full compliance.'
+      }
+    ]
+  },
+  {
+    category: 'Pricing & Services',
+    questions: [
+      {
+        question: 'How much do your services cost?',
+        answer: 'Our monthly bookkeeping starts at $299/month for businesses with up to 100 transactions. Tax preparation starts at $750 for simple returns. We offer transparent, flat-rate pricing with no hidden fees. Contact us for a custom quote based on your needs.'
+      },
+      {
+        question: 'Are there any setup fees?',
+        answer: 'For new bookkeeping clients, there\'s typically a one-time setup fee of $299-$999 depending on the complexity of your books and how far behind you are. This covers initial cleanup, software setup, and process establishment.'
+      },
+      {
+        question: 'Can I change service levels if my business grows?',
+        answer: 'Absolutely! We understand businesses evolve. You can upgrade or modify your service package at any time with 30 days notice. Many clients start with basic bookkeeping and add services like payroll or CFO advisory as they grow.'
+      },
+      {
+        question: 'Do you offer any guarantees?',
+        answer: 'Yes! We guarantee accuracy in our bookkeeping work. If we make an error, we\'ll fix it at no charge. We also guarantee on-time delivery of all financial reports and tax filings, or we\'ll credit your next month\'s service.'
+      }
+    ]
+  },
+  {
+    category: 'Getting Started',
+    questions: [
+      {
+        question: 'How quickly can you start working on my books?',
+        answer: 'For current bookkeeping, we can typically start within 48 hours of signing up. If you need catch-up work, we\'ll provide a timeline during your consultation based on how far behind your books are.'
+      },
+      {
+        question: 'What if my books are a mess or years behind?',
+        answer: 'Don\'t worry - we\'ve seen it all! We offer catch-up bookkeeping services to get you current. We\'ll create a plan to systematically bring your books up to date while minimizing disruption to your business.'
+      },
+      {
+        question: 'How do we communicate and work together?',
+        answer: 'We use a secure client portal for document sharing, offer monthly video or phone meetings to review your finances, and provide email/phone support during business hours. You\'ll also have a dedicated account manager.'
+      },
+      {
+        question: 'Can you help if I\'ve been doing my own books incorrectly?',
+        answer: 'Absolutely! Part of our onboarding process includes reviewing your existing bookkeeping, identifying and correcting any errors, and setting up proper procedures going forward. We\'ll also train you on best practices if you handle any bookkeeping tasks.'
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title="Frequently Asked Questions">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-navy-700 to-navy-800 text-white py-20">
+    <div class="container-narrow text-center">
+      <h1 class="text-4xl md:text-5xl font-serif mb-6 text-white drop-shadow-lg animate-slide-up">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow animate-fade-in">
+        Get answers to common questions about bookkeeping, taxes, and working with 
+        Connecticut Professional Bookkeeping.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Search/Quick Links -->
+  <section class="py-12 bg-gray-50 border-b border-gray-200">
+    <div class="container-narrow">
+      <div class="flex flex-wrap justify-center gap-4">
+        {faqCategories.map((cat) => (
+          <a 
+            href={`#${cat.category.toLowerCase().replace(/\s+/g, '-')}`}
+            class="px-6 py-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-navy-800 font-medium hover:text-gold-600"
+          >
+            {cat.category}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="max-w-4xl mx-auto">
+        {faqCategories.map((category, catIndex) => (
+          <div id={category.category.toLowerCase().replace(/\s+/g, '-')} class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl md:text-3xl font-serif text-navy-800 mb-8 pb-4 border-b-2 border-gold-500">
+              {category.category}
+            </h2>
+            
+            <div class="space-y-6">
+              {category.questions.map((item, index) => (
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 animate-slide-up" 
+                     style={`animation-delay: ${(catIndex * 0.1) + (index * 0.05)}s`}>
+                  <details class="group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                      <h3 class="text-lg font-bold text-navy-800 pr-8">{item.question}</h3>
+                      <svg class="w-6 h-6 text-gold-500 transform transition-transform duration-300 group-open:rotate-180" 
+                           fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </summary>
+                    <div class="px-6 pb-6">
+                      <p class="text-gray-700 leading-relaxed">{item.answer}</p>
+                    </div>
+                  </details>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Still Have Questions CTA -->
+  <section class="section-padding bg-gradient-to-r from-navy-700 to-navy-800 text-white">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl md:text-4xl font-serif mb-6 text-white">Still Have Questions?</h2>
+      <p class="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+        We're here to help! Get personalized answers to your specific situation 
+        with a free consultation.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-gold inline-block">Schedule Free Consultation</a>
+        <a href="tel:2035550123" class="btn-secondary inline-block bg-white/95">
+          <span class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Call (203) 555-0123
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Contact Info -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-narrow">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="animate-scale-in">
+          <div class="w-16 h-16 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-navy-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy-800 mb-2">Business Hours</h3>
+          <p class="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM<br />Saturday - Sunday: Closed</p>
+        </div>
+        
+        <div class="animate-scale-in" style="animation-delay: 0.1s">
+          <div class="w-16 h-16 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-navy-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy-800 mb-2">Email Support</h3>
+          <p class="text-gray-600">info@ctprobookkeeping.com<br />Response within 24 hours</p>
+        </div>
+        
+        <div class="animate-scale-in" style="animation-delay: 0.2s">
+          <div class="w-16 h-16 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-navy-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy-800 mb-2">Serving</h3>
+          <p class="text-gray-600">New Haven County<br />All of Connecticut</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

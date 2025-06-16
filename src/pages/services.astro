@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: 'Monthly Bookkeeping',
+    icon: '📊',
+    description: 'Keep your financial records accurate and up-to-date with our comprehensive monthly bookkeeping services.',
+    features: [
+      'Transaction categorization',
+      'Bank and credit card reconciliation', 
+      'Monthly financial statements',
+      'Expense tracking and reporting',
+      'Sales tax compliance'
+    ],
+    pricing: [
+      { name: 'Starter', price: '$299/mo', transactions: 'Up to 100 transactions' },
+      { name: 'Professional', price: '$599/mo', transactions: 'Up to 300 transactions' },
+      { name: 'Enterprise', price: 'Custom', transactions: 'Unlimited transactions' }
+    ]
+  },
+  {
+    title: 'Tax Preparation & Planning',
+    icon: '📋',
+    description: 'Maximize deductions and ensure compliance with expert tax preparation tailored to Connecticut businesses.',
+    features: [
+      'Business tax return preparation',
+      'Quarterly tax estimates',
+      'Year-round tax planning',
+      'IRS audit representation',
+      'Connecticut state tax compliance'
+    ],
+    pricing: [
+      { name: 'Basic', price: '$750+', transactions: 'Simple business returns' },
+      { name: 'Standard', price: '$1,500+', transactions: 'Multi-state or complex' },
+      { name: 'Premium', price: 'Custom', transactions: 'Comprehensive planning' }
+    ]
+  },
+  {
+    title: 'QuickBooks Services',
+    icon: '💻',
+    description: 'Get the most out of QuickBooks with professional setup, training, and ongoing support.',
+    features: [
+      'QuickBooks setup & migration',
+      'Chart of accounts customization',
+      'One-on-one training sessions',
+      'Custom report creation',
+      'Ongoing technical support'
+    ],
+    pricing: [
+      { name: 'Setup', price: '$999', transactions: 'One-time setup' },
+      { name: 'Training', price: '$150/hr', transactions: 'Personalized sessions' },
+      { name: 'Support', price: '$99/mo', transactions: 'Ongoing assistance' }
+    ]
+  },
+  {
+    title: 'Payroll Services',
+    icon: '💰',
+    description: 'Accurate, compliant payroll processing that keeps your employees happy and the IRS satisfied.',
+    features: [
+      'Weekly/bi-weekly payroll processing',
+      'Direct deposit setup',
+      'Tax withholding and filing',
+      'W-2 and 1099 preparation',
+      'Connecticut payroll tax compliance'
+    ],
+    pricing: [
+      { name: 'Small', price: '$99/mo', transactions: 'Up to 5 employees' },
+      { name: 'Medium', price: '$199/mo', transactions: 'Up to 15 employees' },
+      { name: 'Large', price: 'Custom', transactions: '15+ employees' }
+    ]
+  }
+];
+---
+
+<BaseLayout title="Services">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-navy-700 to-navy-800 text-white py-20">
+    <div class="container-narrow text-center">
+      <h1 class="text-4xl md:text-5xl font-serif mb-6 text-white drop-shadow-lg animate-slide-up">
+        Professional Bookkeeping Services
+      </h1>
+      <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow animate-fade-in">
+        From daily bookkeeping to complex tax strategies, we provide comprehensive financial services 
+        designed specifically for Connecticut businesses.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      {services.map((service, index) => (
+        <div class="mb-20 animate-slide-up" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="grid md:grid-cols-2 gap-12 items-start">
+            <!-- Service Details -->
+            <div>
+              <div class="flex items-center mb-6">
+                <span class="text-5xl mr-4">{service.icon}</span>
+                <h2 class="text-3xl font-serif text-navy-800">{service.title}</h2>
+              </div>
+              <p class="text-lg text-gray-700 mb-6">{service.description}</p>
+              
+              <h3 class="text-xl font-bold text-navy-800 mb-4">What's Included:</h3>
+              <ul class="space-y-3 mb-8">
+                {service.features.map((feature) => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-gold-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div>
+              <h3 class="text-xl font-bold text-navy-800 mb-6">Pricing Plans</h3>
+              <div class="space-y-4">
+                {service.pricing.map((plan) => (
+                  <div class="card hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-gold-500">
+                    <div class="flex justify-between items-start mb-3">
+                      <div>
+                        <h4 class="text-lg font-bold text-navy-800">{plan.name}</h4>
+                        <p class="text-sm text-gray-600">{plan.transactions}</p>
+                      </div>
+                      <div class="text-2xl font-bold text-navy-800">{plan.price}</div>
+                    </div>
+                    <a href="/contact" class="text-gold-600 hover:text-gold-700 text-sm font-medium">
+                      Get Started →
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Why Our Services -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-navy-800 mb-4">Why Choose Our Services?</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We understand Connecticut businesses because we are one. Here's what sets us apart.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-navy-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy-800 mb-3">Guaranteed Accuracy</h3>
+          <p class="text-gray-600">We stand behind our work with a 100% accuracy guarantee on all bookkeeping services.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-navy-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy-800 mb-3">Always On Time</h3>
+          <p class="text-gray-600">Never miss a deadline again. We ensure all filings and reports are completed on schedule.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-navy-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy-800 mb-3">Expert Team</h3>
+          <p class="text-gray-600">Certified professionals with decades of combined experience in Connecticut business finance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-gradient-to-r from-navy-700 to-navy-800 text-white">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl md:text-4xl font-serif mb-6 text-white">Ready to Get Started?</h2>
+      <p class="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+        Let's discuss which services best fit your business needs. 
+        Schedule a free consultation to learn how we can help.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-gold inline-block">Schedule Consultation</a>
+        <a href="tel:2035550123" class="btn-secondary inline-block bg-white/95">Call (203) 555-0123</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
