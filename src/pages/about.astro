@@ -8,21 +8,21 @@ const teamMembers = [
   {
     name: 'David Morrison',
     role: 'Founder & Lead Bookkeeper',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=faces&q=80',
     credentials: ['QuickBooks ProAdvisor', 'Certified Bookkeeper (AIPB)', 'MBA, Finance'],
     bio: 'With over 15 years of experience serving Connecticut businesses, David founded the firm to provide personalized, professional bookkeeping services that help local businesses thrive.'
   },
   {
     name: 'Sarah Anderson',
     role: 'Senior Tax Specialist',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces&q=80',
     credentials: ['Enrolled Agent (EA)', 'QuickBooks Advanced Certified', 'BS, Accounting'],
     bio: 'Sarah specializes in tax strategy and compliance for small businesses, with deep expertise in Connecticut tax law and IRS regulations.'
   },
   {
     name: 'Michael Chen',
     role: 'Payroll Services Manager',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=faces&q=80',
     credentials: ['Certified Payroll Professional (CPP)', 'SHRM-CP', 'BS, Business Administration'],
     bio: 'Michael ensures accurate, compliant payroll processing for all our clients, staying current with ever-changing employment laws and regulations.'
   }
@@ -144,11 +144,13 @@ const values = [
       <div class="grid md:grid-cols-3 gap-8">
         {teamMembers.map((member, index) => (
           <div class="card hover:shadow-xl transition-all duration-300 animate-slide-up h-full flex flex-col" style={`animation-delay: ${index * 0.1}s`}>
-            <img 
-              src={member.image} 
-              alt={member.name}
-              class="w-full h-64 object-cover rounded-t-lg"
-            />
+            <div class="h-64 overflow-hidden rounded-t-lg bg-gray-100">
+              <img 
+                src={member.image} 
+                alt={member.name}
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
             <div class="p-6 flex flex-col flex-1">
               <h3 class="text-xl font-bold text-navy-800 mb-1">{member.name}</h3>
               <p class="text-gold-600 font-medium mb-4">{member.role}</p>
