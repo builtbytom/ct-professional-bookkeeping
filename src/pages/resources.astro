@@ -123,19 +123,19 @@ const webinars = [
 
       <div class="grid md:grid-cols-2 gap-8">
         {resources.map((resource, index) => (
-          <div class="card hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-gold-500 animate-slide-up" style={`animation-delay: ${index * 0.1}s`}>
-            <div class="flex items-start space-x-4">
-              <div class="text-5xl flex-shrink-0">{resource.icon}</div>
-              <div class="flex-1">
-                <div class="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 class="text-xl font-bold text-navy-800 mb-1">{resource.title}</h3>
-                    <span class="text-sm text-gold-600 font-medium">{resource.type}</span>
-                  </div>
+          <div class="card hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-gold-500 animate-slide-up h-full" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="p-6 h-full flex flex-col">
+              <div class="flex items-start space-x-4 mb-4">
+                <div class="text-5xl flex-shrink-0">{resource.icon}</div>
+                <div>
+                  <h3 class="text-xl font-bold text-navy-800 mb-1">{resource.title}</h3>
+                  <span class="text-sm text-gold-600 font-medium">{resource.type}</span>
                 </div>
+              </div>
+              <div class="flex-1 flex flex-col">
                 <p class="text-gray-700 mb-4">{resource.description}</p>
                 
-                <div class="mb-6">
+                <div class="mb-6 flex-1">
                   <h4 class="text-sm font-bold text-navy-800 mb-2">What's Included:</h4>
                   <ul class="space-y-1">
                     {resource.benefits.map((benefit) => (
@@ -149,7 +149,7 @@ const webinars = [
                   </ul>
                 </div>
 
-                <a href="/contact" class="btn-gold inline-block text-center w-full">
+                <a href="/contact" class="btn-gold inline-block text-center w-full mt-auto">
                   {resource.cta}
                 </a>
               </div>
